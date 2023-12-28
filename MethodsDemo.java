@@ -9,7 +9,7 @@ public class MethodsDemo
 
         result = addThese(3, 5);
         System.out.println(result);
-        
+
         System.out.println(squared(5.5));
     }//end main
 
