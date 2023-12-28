@@ -14,10 +14,10 @@ public class Mini_Java_Proj4_3_Parallel
 
         while (inputNum < 5)
         {
-            System.out.println("name is");
+            System.out.print("name is:");
             name = keyboard.next();
             nameArray.add(name);
-            System.out.println("age is");
+            System.out.print("age is:");
             age = keyboard.nextInt();
             ageArray.add(age);
             inputNum++;
