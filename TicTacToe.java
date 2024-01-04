@@ -2,6 +2,10 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+/**
+ * main method, only calls runGame
+ */
 public class TicTacToe
 {
     public static void main(String[] args)
@@ -9,6 +13,9 @@ public class TicTacToe
         runGame();
     }    //end main
 
+    /**
+     * runs all the methods needed for the game
+     */
     public static void runGame()
     {
         String winner = "";
@@ -34,12 +41,18 @@ public class TicTacToe
         System.out.println("winner is " + winner);
     }//end runGame
 
+    /**
+     * initializes gameBoard array
+     */
     public static void initGameBoard(String[][] gameBoard)
     {
         for (int i = 0; i < gameBoard.length; i++)
             Arrays.fill(gameBoard[i], " ");
     }// end initGameBoard
 
+    /**
+     * prints the gameBoard array
+     */
     public static void printBoard(String[][] gameBoard)
     {
 
@@ -55,7 +68,19 @@ public class TicTacToe
         }
         System.out.println();
     }// end printBoard
-    
+
+    /**
+     * The `try` and `catch` blocks are part of exception handling
+     * `try` Block:** The code inside the `try` block contains the statements that might throw an exception.
+     * catch` Block:** If an exception occurs in the `try` block, the control is transferred to the `catch` block.
+     * The `catch` block contains the code that handles the exception.
+     * while (true)` Loop is an infinite loop, keep executing until a `break` statement is encountered.
+     *
+     * 1. The `try` block attempts to execute the code inside it.
+     * 2. If an exception occurs (e.g., invalid input), the control moves to the `catch` block.
+     * 3. The `catch` block handles the exception (e.g., prints an error message) and then goes back to the beginning of the loop.
+     * 4. If no exception occurs, the `catch` block is skipped, and the `break;` statement is encountered, exiting the loop.
+ */
     public static void getUserInput(String xTurn, String[][] gameBoard) {
         Scanner userInput = new Scanner(System.in);
         int row = -1;
@@ -91,6 +116,9 @@ public class TicTacToe
        } gameBoard[row][column] = xTurn;
     }// end getUserInput
 
+    /**
+     * checks if array index is non space
+     */
     public static boolean cellOccupied(int row, int col, String[][] gameBoard)
     {
         if (gameBoard[row][col].equals(" "))
@@ -98,6 +126,9 @@ public class TicTacToe
         return false;
     }// end cellOccupied
 
+    /**
+     * checks combinations to see if there is a winner or a tie
+     */
     public static String getWinner(String[][] gameBoard)
     {
         // Check rows
@@ -120,6 +151,9 @@ public class TicTacToe
         return "";
     }// end getWinner
 
+    /**
+     * checks is the array is full with non space characters
+     */
     public static boolean isBoardFull(String[][] gameBoard)
     {
         for (int i = 0; i < gameBoard.length; i++)
