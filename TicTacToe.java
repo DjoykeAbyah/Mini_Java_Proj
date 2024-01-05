@@ -18,7 +18,7 @@ public class TicTacToe
      */
     public static void runGame()
     {
-        String winner = "";
+        String winner;
         String[][] gameBoard = new String[3][3];
         String xTurn = "x";
         initGameBoard(gameBoard);
@@ -28,7 +28,7 @@ public class TicTacToe
             printBoard(gameBoard);
             getUserInput(xTurn, gameBoard);
             xTurn = (xTurn.equals("x")) ? "o" : "x";
-            if (isBoardFull(gameBoard) && winner.isEmpty())
+            if (isBoardFull(gameBoard))
             {
                 winner = "c";
                 printBoard(gameBoard);
@@ -46,8 +46,7 @@ public class TicTacToe
      */
     public static void initGameBoard(String[][] gameBoard)
     {
-        for (int i = 0; i < gameBoard.length; i++)
-            Arrays.fill(gameBoard[i], " ");
+        for (String[] strings : gameBoard) Arrays.fill(strings, " ");
     }// end initGameBoard
 
     /**
@@ -56,12 +55,12 @@ public class TicTacToe
     public static void printBoard(String[][] gameBoard)
     {
 
-        for (int i = 0; i < gameBoard.length; i++)
+        for (String[] strings : gameBoard)
         {
-            for (int j = 0; j < gameBoard[i].length; j++)
+            for (String string : strings)
             {
                 System.out.print("|");
-                System.out.print(gameBoard[i][j]);
+                System.out.print(string);
             }
             System.out.print("|");
             System.out.println();
@@ -75,16 +74,15 @@ public class TicTacToe
      * catch` Block:** If an exception occurs in the `try` block, the control is transferred to the `catch` block.
      * The `catch` block contains the code that handles the exception.
      * while (true)` Loop is an infinite loop, keep executing until a `break` statement is encountered.
-     *
      * 1. The `try` block attempts to execute the code inside it.
      * 2. If an exception occurs (e.g., invalid input), the control moves to the `catch` block.
-     * 3. The `catch` block handles the exception (e.g., prints an error message) and then goes back to the beginning of the loop.
+     * 3. The `catch` block handles the exception (e.g., prints an error message) goes back to the beginning of the loop.
      * 4. If no exception occurs, the `catch` block is skipped, and the `break;` statement is encountered, exiting the loop.
  */
     public static void getUserInput(String xTurn, String[][] gameBoard) {
         Scanner userInput = new Scanner(System.in);
-        int row = -1;
-        int column = -1;
+        int row;
+        int column;
 
         while (true)
         {
@@ -117,13 +115,11 @@ public class TicTacToe
     }// end getUserInput
 
     /**
-     * checks if array index is non space
+     * checks if array index is non-space
      */
     public static boolean cellOccupied(int row, int col, String[][] gameBoard)
     {
-        if (gameBoard[row][col].equals(" "))
-            return true;
-        return false;
+        return gameBoard[row][col].equals(" ");
     }// end cellOccupied
 
     /**
@@ -132,10 +128,9 @@ public class TicTacToe
     public static String getWinner(String[][] gameBoard)
     {
         // Check rows
-        for (int i = 0; i < gameBoard.length; i++)
-        {
-            if ((gameBoard[i][0].equals(gameBoard[i][1]) && gameBoard[i][1].equals(gameBoard[i][2])) && !gameBoard[i][0].equals(" "))
-                return gameBoard[i][0];
+        for (String[] strings : gameBoard) {
+            if ((strings[0].equals(strings[1]) && strings[1].equals(strings[2])) && !strings[0].equals(" "))
+                return strings[0];
         }
         // Check columns
         for (int j = 0; j < gameBoard[0].length; j++)
@@ -152,15 +147,15 @@ public class TicTacToe
     }// end getWinner
 
     /**
-     * checks is the array is full with non space characters
+     * checks is the array is filled with non-space characters
      */
     public static boolean isBoardFull(String[][] gameBoard)
     {
-        for (int i = 0; i < gameBoard.length; i++)
+        for (String[] strings : gameBoard)
         {
-            for (int j = 0; j < gameBoard[i].length; j++)
+            for (String string : strings)
             {
-                if (gameBoard[i][j].equals(" "))
+                if (string.equals(" "))
                     return (false);
             }
         }
