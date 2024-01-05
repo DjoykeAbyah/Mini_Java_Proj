@@ -21,10 +21,13 @@ public class HouseDemo
         PrintHouseData(yourHouse);
     }//end main
 
-    public static void PrintHouseData(House Ahouse)
+    /*
+        has to be static so can be called directly from main
+     */
+    public static void PrintHouseData(House house)
     {
-        System.out.println("Your house is " + Ahouse.getColor() +
-                " has " + Ahouse.getNumStories() + " stories and " +
-                Ahouse.getNumWindows() + " windows.");
+        System.out.println("The house is " + house.getColor() +
+                "\nit has " + house.getNumStories() + " stories" +
+                "\nit has " + house.getNumWindows() + " windows.\n");
     }//end printHouseData
 }//end HouseDemo
