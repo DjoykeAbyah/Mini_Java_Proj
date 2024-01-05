@@ -99,7 +99,9 @@ public class TicTacToe
                     row = Integer.parseInt(inputArray[0]);
                     column = Integer.parseInt(inputArray[1]);
 
-                    if (row >= 0 && row <= 2 && column >= 0 && column <= 2 && cellOccupied(row, column, gameBoard))
+                    if (row >= 0 && row <= 2 &&
+                            column >= 0 &&
+                            column <= 2 && cellOccupied(row, column, gameBoard))
                         break; // Exit the loop if the input is valid
                     else
                         System.out.println("Invalid input. Please enter values within the range 0 to 2.");
@@ -129,19 +131,27 @@ public class TicTacToe
     {
         // Check rows
         for (String[] strings : gameBoard) {
-            if ((strings[0].equals(strings[1]) && strings[1].equals(strings[2])) && !strings[0].equals(" "))
+            if ((strings[0].equals(strings[1]) &&
+                    strings[1].equals(strings[2])) &&
+                    !strings[0].equals(" "))
                 return strings[0];
         }
         // Check columns
         for (int j = 0; j < gameBoard[0].length; j++)
         {
-            if ((gameBoard[0][j].equals(gameBoard[1][j]) && gameBoard[1][j].equals(gameBoard[2][j])) && !gameBoard[0][j].equals(" "))
+            if ((gameBoard[0][j].equals(gameBoard[1][j]) &&
+                    gameBoard[1][j].equals(gameBoard[2][j])) &&
+                    !gameBoard[0][j].equals(" "))
                 return gameBoard[0][j];
         }
         // Check diagonals
-        if ((gameBoard[0][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][2])) && !gameBoard[0][0].equals(" "))
+        if ((gameBoard[0][0].equals(gameBoard[1][1]) &&
+                gameBoard[1][1].equals(gameBoard[2][2])) &&
+                !gameBoard[0][0].equals(" "))
             return gameBoard[0][0];
-        if (gameBoard[0][2].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][0]) && !gameBoard[0][2].equals(" "))
+        if (gameBoard[0][2].equals(gameBoard[1][1]) &&
+                gameBoard[1][1].equals(gameBoard[2][0]) &&
+                !gameBoard[0][2].equals(" "))
             return gameBoard[0][2];
         return "";
     }// end getWinner
