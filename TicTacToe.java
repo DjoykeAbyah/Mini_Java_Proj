@@ -104,14 +104,14 @@ public class TicTacToe
                             column <= 2 && cellOccupied(row, column, gameBoard))
                         break; // Exit the loop if the input is valid
                     else
-                        System.out.println("Invalid input. Please enter values within the range 0 to 2.");
+                        System.out.println("Invalid input. Enter within the range 0 to 2.");
                 }
                 else
-                    System.out.println("Invalid input. Please enter exactly two integers separated by space.");
+                    System.out.println("Invalid input. Enter two integers separated by space.");
             }
             catch (NumberFormatException | InputMismatchException e)
             {
-                System.out.println("Invalid input. Please enter valid integers separated by space.");
+                System.out.println("Invalid input. Enter integers separated by space.");
             }
        } gameBoard[row][column] = xTurn;
     }// end getUserInput
