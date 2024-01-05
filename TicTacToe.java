@@ -89,7 +89,7 @@ public class TicTacToe
             try
             {
                 System.out.println("It's " + xTurn + "'s turn");
-                System.out.println("Please enter row and column, 0, 1, or 2, separated by space");
+                System.out.println("Enter row and column, 0, 1, or 2, separated by space");
 
                 String input = userInput.nextLine();
                 String[] inputArray = input.split(" ");
