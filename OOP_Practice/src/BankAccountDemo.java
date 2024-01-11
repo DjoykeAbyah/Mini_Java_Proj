@@ -11,18 +11,17 @@ public class BankAccountDemo
         PrintBalance(Djoyke);
         Djoyke.withdraw(600);
         Djoyke.withdraw(40);
+        Djoyke.withdraw(-5);
         PrintBalance(Djoyke);
     }
 
     public static void PrintOwner(BankAccount bankAccount)
     {
-        System.out.println("Owner is " + bankAccount.getOwner());
-        System.out.println();
+        System.out.println("Owner is " + bankAccount.getOwner() + "\n");
     }
 
     public static void PrintBalance(BankAccount bankAccount)
     {
-        System.out.println("Balance is " + bankAccount.getBalance());
-        System.out.println();
+        System.out.println("Balance is " + bankAccount.getBalance()+ "\n");
     }
 }

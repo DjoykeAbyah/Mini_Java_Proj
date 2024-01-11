@@ -33,28 +33,26 @@ public class BankAccount
         if (amount == 0)
         {
             System.out.println("Deposit must be above 0" +
-                    "\nDeposit not possible");
-            System.out.println();
+                    "\nDeposit not possible\n");
             return ;
         }
         else
             balance += amount;
-        System.out.println("deposit success");
+        System.out.println("deposit success\n");
     }
 
     public void withdraw(int amount)
     {
         System.out.println("Amount withdrawal is " + amount);
-        if (amount > balance)
+        if (amount <= 0 || amount > balance)
         {
             System.out.println("Your balance is: " + balance
-                    + "\nWithdrawal not possible");
-            System.out.println();
+                    + "\nWithdrawal not possible\n");
             return ;
         }
         else
             balance -= amount;
-        System.out.println("withdrawal success");
+        System.out.println("withdrawal success\n");
     }
 
     public String getOwner()
