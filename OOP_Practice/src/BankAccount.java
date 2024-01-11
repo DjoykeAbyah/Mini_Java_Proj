@@ -39,6 +39,7 @@ public class BankAccount
         }
         else
             balance += amount;
+        System.out.println("Your balance is :" + getBalance());
         System.out.println("deposit success\n");
     }
 
@@ -48,11 +49,13 @@ public class BankAccount
         if (amount <= 0 || amount > balance)
         {
             System.out.println("Your balance is: " + balance
-                    + "\nWithdrawal not possible\n");
+                    + "\nWithdrawal must be equal to or less than "
+                    + balance + "\n");
             return ;
         }
         else
             balance -= amount;
+        System.out.println("Your balance is :" + getBalance());
         System.out.println("withdrawal success\n");
     }
 
